@@ -39,6 +39,7 @@ Things you may want to cover:
 -has_many :items
 -has_many :comments
 -has_many :purchases
+-has_one :address
 
 ## commentsテーブル
 | Column   | Type    | Options                      |
@@ -66,7 +67,7 @@ Things you may want to cover:
 
 ### Association
 -belongs_to :user
--belings_to :purchase
+-has_one :purchase
 -has_many :comments
 
 
@@ -82,6 +83,8 @@ Things you may want to cover:
 | user_id       | integer |null: false,foreign_key: true|
 
 ### Association
+-belongs_to :user
+-has_one :purchase
 
 ## purchasesテーブル
 | Column   | Type    | Options                      |
@@ -91,4 +94,5 @@ Things you may want to cover:
 
 ### Association
 -belongs_to :user
--has_many :items
+-belongs_to :item
+-belongs_to :address
