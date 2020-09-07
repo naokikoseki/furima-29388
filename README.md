@@ -33,9 +33,7 @@ Things you may want to cover:
 | first_name_kana  | string      |null: false |
 | email            | string      |null: false |
 | password         | string      |null: false |
-| birth_year       | string      |null: false |
-| birth_month      | string      |null: false |
-| birth_day        | string      |null: false |
+| birthday         | date        |null: false |
 
 ### Association
 -has_many :items
@@ -55,40 +53,35 @@ Things you may want to cover:
 ## itemsテーブル
 | Column       | Type        | Options                      |
 |-----------------------------------------------------------|
-| image        | string      |null: false                   |
-| item_name    | string      |null: false                   |
-| price        | string      |null: false                   |
-| category     | string      |null: false                   |
-| status       | string      |null: false                   |
-| fee          | string      |null: false                   |
-| region       | string      |null: false                   |
-| shipment_day | string      |null: false                   |
+| name         | string      |null: false                   |
+| price        | integer     |null: false                   |
+| category     | integer     |null: false                   |
+| status       | integer     |null: false                   |
+| fee          | integer     |null: false                   |
+| region       | integer     |null: false                   |
+| shipment_day | integer     |null: false                   |
 | user_id      | integer     |null: false,foreign_key: true |
 
 ### Association
 -belongs_to :user
 -has_many :comments
 
-## credit_cardテーブル
-| Column           | Type    | Options                      |
-|-----------------------------------------------------------|
-| credit_number    | integer |null: false                   |
-| expiration_year  | integer |null: false                   |
-| expiration_month | integer |null: false                   |
-| security_code    | integer |null: false                   |
-| user_id          | integer |null: false,foreign_key: true |
-
-### Association
 
 ## addressテーブル
 | Column        | Type    | Options                     |
 |-------------------------------------------------------|
 | post_code     | integer |null: false                  |
-| prefecture    | string  |null: false                  |
+| prefecture    | integer |null: false                  |
 | city          | string  |null: false                  |
 | house_number  | string  |null: false                  |
 | building_name | string  |                             |
-| phone_number  | integer |null: false                  |
+| phone_number  | string  |null: false                  |
 | user_id       | integer |null: false,foreign_key: true|
 
 ### Association
+
+## purchasesテーブル
+| Column   | Type    | Options                      |
+|---------------------------------------------------|
+| item_id  | integer |null: false,foreign_key: true |
+| user_id  | integer |null: false,foreign_key: true |
