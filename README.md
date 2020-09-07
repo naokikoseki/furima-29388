@@ -38,6 +38,7 @@ Things you may want to cover:
 ### Association
 -has_many :items
 -has_many :comments
+-has_many :purchases
 
 ## commentsテーブル
 | Column   | Type    | Options                      |
@@ -60,17 +61,19 @@ Things you may want to cover:
 | fee          | integer     |null: false                   |
 | region       | integer     |null: false                   |
 | shipment_day | integer     |null: false                   |
+| explanation  | text        |                              |
 | user_id      | integer     |null: false,foreign_key: true |
 
 ### Association
 -belongs_to :user
+-belings_to :purchase
 -has_many :comments
 
 
 ## addressテーブル
 | Column        | Type    | Options                     |
 |-------------------------------------------------------|
-| post_code     | integer |null: false                  |
+| post_code     | string  |null: false                  |
 | prefecture    | integer |null: false                  |
 | city          | string  |null: false                  |
 | house_number  | string  |null: false                  |
@@ -85,3 +88,7 @@ Things you may want to cover:
 |---------------------------------------------------|
 | item_id  | integer |null: false,foreign_key: true |
 | user_id  | integer |null: false,foreign_key: true |
+
+### Association
+-belongs_to :user
+-has_many :items
