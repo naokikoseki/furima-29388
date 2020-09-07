@@ -39,7 +39,6 @@ Things you may want to cover:
 -has_many :items
 -has_many :comments
 -has_many :purchases
--has_one :address
 
 ## commentsテーブル
 | Column   | Type    | Options                      |
@@ -62,7 +61,7 @@ Things you may want to cover:
 | fee          | integer     |null: false                   |
 | region       | integer     |null: false                   |
 | shipment_day | integer     |null: false                   |
-| explanation  | text        |                              |
+| explanation  | text        |null:false                    |
 | user_id      | integer     |null: false,foreign_key: true |
 
 ### Association
@@ -80,11 +79,10 @@ Things you may want to cover:
 | house_number  | string  |null: false                  |
 | building_name | string  |                             |
 | phone_number  | string  |null: false                  |
-| user_id       | integer |null: false,foreign_key: true|
+| purchase_id   | integer |null: false,foreign_key: true|
 
 ### Association
--belongs_to :user
--has_one :purchase
+-belongs_to :purchase
 
 ## purchasesテーブル
 | Column   | Type    | Options                      |
@@ -95,4 +93,4 @@ Things you may want to cover:
 ### Association
 -belongs_to :user
 -belongs_to :item
--belongs_to :address
+-has_one :address
