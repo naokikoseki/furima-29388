@@ -23,7 +23,11 @@ RSpec.describe User, type: :model do
        expect(@user.errors.full_messages)
     end
     it "すでに登録されているemailは登録できないこと" do
-      
+      @user.save
+      another_user = FactoryBot.build(:user)
+      another_user.email = @user.email
+      another_user.valid?
+      expect(another_user.errors.full_messages)
     end
     it "emailに＠が含まれていなければ登録できないこと" do
       @user.email = "email"
