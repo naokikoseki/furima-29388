@@ -3,6 +3,7 @@ class Item < ApplicationRecord
   has_one :purchase
   has_many :comments
   has_one_attached :image
+  validates :image, presence: true
 
   with_options presence: true do
     validates :name, length: {maximum: 40}
