@@ -5,11 +5,11 @@ RSpec.describe Item, type: :model do
     before do
       @item = FactoryBot.build(:item)
     end
-   #出品できるとき
+   # 出品できるとき
    it "image,name,explanation,category,status,fee,region,shipment_day,priceが存在すれば出品できること" do
      expect(@item).to be_valid
    end
-   #出品できないとき
+   # 出品できないとき
     it "imageが空では出品できないこと" do
      @item.image = nil
      @item.valid?
@@ -25,7 +25,7 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages)
     end
-    #category
+    # category
     it "categoryが空では出品できないこと" do
       @item.category = nil
       @item.valid?
@@ -36,7 +36,7 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages)
     end
-    #status
+    # status
     it "statusが空では出品できないこと" do
       @item.status = nil
       @item.valid?
@@ -47,7 +47,7 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages)
     end
-    #fee
+    # fee
     it "feeが空では出品できないこと" do
       @item.fee = nil
       @item.valid?
@@ -58,7 +58,7 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages)
     end
-    #region
+    # region
     it "regionが空では出品できないこと" do
       @item.region = nil
       @item.valid?
@@ -69,7 +69,7 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages)
     end
-    #shipment_day
+    # shipment_day
     it "shipment_dayが空では出品できないこと" do
       @item.shipment_day = nil
       @item.valid?
@@ -80,7 +80,7 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages)
     end
-    #price
+    # price
     it "priceが空では出品できないこと" do
       @item.price = nil
       @item.valid?
