@@ -5,6 +5,9 @@ class Item < ApplicationRecord
   has_one_attached :image
   validates :image, presence: true
 
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :category
+
   with_options presence: true do
     validates :name, length: {maximum: 40}
     validates :explanation, length: {maximum: 1000}
