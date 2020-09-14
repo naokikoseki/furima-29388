@@ -7,9 +7,10 @@ function priceCalc() {
      const price = priceInput.value;
      const tax = 0.1 ;
      if (price >= 300 && price <= 9999999){
-       let fee = price * tax;
-       let benefit = price - fee;
-       addTax.textContent = fee;
+       let fee1 = price * tax;
+       let fee2 = Math.round(fee1);
+       let benefit = price - fee2;
+       addTax.textContent = fee2;
        profit.textContent = benefit;}
       else{
         let fee = "--";
