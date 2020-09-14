@@ -1,22 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-   describe '#create' do
+  describe '#create' do
     before do
       @user = FactoryBot.build(:user)
     end
-   #登録できるとき
+   # 登録できるとき
     it "nicknameとemail、passwordとpassword_confirmation、family_name,first_name,family_name_kana,first_name_kana,birthdayが存在すれば登録できること" do
        expect(@user).to be_valid
     end
-   #登録できないとき
-    #nickname
+   # 登録できないとき
+    # nickname
     it "nicknameが空では登録できないこと" do
        @user.nickname = nil
        @user.valid?
        expect(@user.errors.full_messages)
     end
-    #email
+    # email
     it "emailが空では登録できないこと" do
        @user.email = nil
        @user.valid?
@@ -34,7 +34,7 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages)
     end
-    #password
+    # password
     it "passwordが空では登録できないこと" do
        @user.password = nil
        @user.valid?
@@ -66,7 +66,7 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages)
     end
-    #family_name
+    # family_name
     it "family_nameが空では登録できないこと" do
        @user.family_name = nil
        @user.valid?
@@ -77,7 +77,7 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages)
     end
-    #first_name
+    # first_name
     it "first_nameが空では登録できないこと" do
        @user.first_name = nil
        @user.valid?
@@ -88,7 +88,7 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages)
     end
-    #_kana
+    # _kana
     it "family_name_kanaが空では登録できないこと" do
        @user.family_name_kana = nil
        @user.valid?
@@ -109,7 +109,7 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages)
     end
-    #birthday
+    # birthday
     it "birthdayが空では登録できないこと" do
       @user.birthday = nil
       @user.valid?

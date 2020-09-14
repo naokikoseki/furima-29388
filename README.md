@@ -61,7 +61,7 @@ Things you may want to cover:
 | fee_id          | integer     |null: false                   |
 | region_id       | integer     |null: false                   |
 | shipment_day_id | integer     |null: false                   |
-| explanation     | text        |null:false                    |
+| explanation     | text        |null: false                   |
 | user_id         | integer     |null: false,foreign_key: true |
 
 ### Association
