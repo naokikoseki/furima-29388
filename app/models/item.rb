@@ -9,6 +9,6 @@ class Item < ApplicationRecord
     validates :name, length: {maximum: 40}
     validates :explanation, length: {maximum: 1000}
     validates :category, :status, :fee, :region, :shipment_day, numericality: { other_than: 0, message: "can't be blank" }
-    validates :price, numericality: {greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: "Out of setting range"}, format: {with: /\A[0-9]+\z/, message: 'Half-width number'}
+    validates :price, format: {with: /\A[0-9]+\z/i, message: 'Half-width number'}, numericality: {greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: "Out of setting range"}
   end
 end
