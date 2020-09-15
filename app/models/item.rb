@@ -7,6 +7,10 @@ class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
+  #belongs_to_active_hash :fee
+  #belongs_to_active_hash :region
+  #belongs_to_active_hash :status
+  #belongs_to_active_hash :shipment_day
 
   with_options presence: true do
     validates :name, length: {maximum: 40}
