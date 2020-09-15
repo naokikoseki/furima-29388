@@ -14,13 +14,17 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all.order("created_at DESC")
+    @items = Item.includes(:user).order("created_at DESC")
+  end
+
+  def show
+    @item = Item.find(params[:id])
   end
 
   private
 
   def item_params
-    params.require(:item).permit(:image, :name, :explanation, :category, :status, :fee, :region, :shipment_day, :price).merge(user_id: current_user.id)
+    params.require(:item).permit(:image, :name, :explanation, :category_id, :status_id, :fee_id, :region_id, :shipment_day_id, :price).merge(user_id: current_user.id)
   end
 
   def move_to_index
