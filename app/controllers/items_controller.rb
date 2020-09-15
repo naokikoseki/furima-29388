@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only:[:show, :edit, :update]
+  before_action :set_item, only:[:show, :edit, :update, :destroy]
   before_action :move_to_index, except:[:index, :show]
   def new
     @item = Item.new
@@ -29,6 +29,14 @@ class ItemsController < ApplicationController
       return redirect_to root_path
     else
       render 'items/edit'
+    end
+  end
+
+  def destroy
+    if @item.destroy 
+      redirect_to root_path
+    else
+      render 'items/show'
     end
   end
 
