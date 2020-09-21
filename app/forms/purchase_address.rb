@@ -5,13 +5,11 @@ class PurchaseAddress
 
   with_options presence: true do
     validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
+    validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
+    validates :city, :house_number, presence: true
     validates :phone_number,format: {with: /\A[0-9]+\z/i, message: 'Half-width number'}, numericality: {less_than_or_equal_to: 99_999_999_999}
+    validates :token, presence: true
   end
-
-  validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
-  validates :city, presence: true
-  validates :house_number, presence: true
-  validates :token, presence: true
   
   def save
     purchase = Purchase.create(user_id: user_id, item_id: item_id)
