@@ -11,7 +11,6 @@ class PurchasesController < ApplicationController
 
   def create
     @purchase = PurchaseAddress.new(purchase_params)
-    #binding.pry
     if @purchase.valid?
       pay_item
       @purchase.save
@@ -32,13 +31,13 @@ class PurchasesController < ApplicationController
   end
 
   def purchase_params
-    params.permit(:post_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :token).merge(user_id: current_user.id)
+    params.permit(:post_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :token, :item_id, :authenticity_token).merge(user_id: current_user.id)
   end
 
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
-      amount: purchase_params[@item.price],  # 商品の値段
+      amount: @item.price,  # 商品の値段
       card: purchase_params[:token],    # カードトークン
       currency:'jpy'                 # 通貨の種類(日本円)
     )
