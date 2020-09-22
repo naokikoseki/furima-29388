@@ -4,6 +4,9 @@ class PurchasesController < ApplicationController
   before_action :set_purchase, only:[:index, :new]
 
   def index
+    if @item.user.id == current_user.id || @item.purchase
+      redirect_to root_path
+    end
   end
 
   def new
