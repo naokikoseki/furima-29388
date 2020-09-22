@@ -14,6 +14,10 @@ RSpec.describe PurchaseAddress, type: :model do
       @purchase.building_name = nil
       expect(@purchase).to be_valid
      end
+     it '電話番号が10桁でも購入できる' do
+      @purchase.phone_number = '0120828828'
+      expect(@purchase).to be_valid
+     end
     end
     
     context '購入できないとき' do
@@ -74,6 +78,11 @@ RSpec.describe PurchaseAddress, type: :model do
       end
       it 'phone_numberに"-"などが含まれていたら購入できない' do
         @purchase.phone_number = '090-1234-5678'
+        @purchase.valid?
+        expect(@purchase.errors.full_messages)
+      end
+      it 'phone_numberが10桁未満だと購入できない' do
+        @purchase.phone_number = '090123456'
         @purchase.valid?
         expect(@purchase.errors.full_messages)
       end
