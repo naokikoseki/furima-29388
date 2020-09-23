@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :purchases
 
   with_options presence: true do
+    validates :nickname
     validates :email, uniqueness: true
     validates :password, confirmation: true, length: {minimum: 6}, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }
     validates :family_name, :first_name, format: {with: /\A[ぁ-んァ-ン一-龥]/}
