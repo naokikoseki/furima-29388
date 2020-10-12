@@ -36,9 +36,9 @@ Things you may want to cover:
 | birthday         | date        |null: false |	
 
 ### Association	
--has_many :items	
--has_many :comments
--has_many :purchases
+- has_many :items	
+- has_many :comments
+- has_many :purchases
 
 ## commentsテーブル
 | Column   | Type    | Options                      |
@@ -48,8 +48,8 @@ Things you may want to cover:
 | user_id  | integer |null: false,foreign_key: true |
 
 ### Association
--belongs_to :user
--belongs_to :item
+- belongs_to :user
+- belongs_to :item
 
 ## itemsテーブル
 | Column          | Type        | Options                      |
@@ -65,9 +65,9 @@ Things you may want to cover:
 | user_id         | integer     |null: false,foreign_key: true |
 
 ### Association
--belongs_to :user
--has_one :purchase
--has_many :comments
+- belongs_to :user
+- has_one :purchase
+- has_many :comments
 
 
 ## addressテーブル
@@ -82,7 +82,7 @@ Things you may want to cover:
 | purchase_id   | integer |null: false,foreign_key: true|
 
 ### Association
--belongs_to :purchase
+- belongs_to :purchase
 
 ## purchasesテーブル
 | Column   | Type    | Options                      |
@@ -91,6 +91,6 @@ Things you may want to cover:
 | user_id  | integer |null: false,foreign_key: true |
 
 ### Association
--belongs_to :user
--belongs_to :item
--has_one :address
+- belongs_to :user
+- belongs_to :item
+- has_one :address
