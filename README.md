@@ -23,7 +23,6 @@ Things you may want to cover:
 
 * ...
 
-<<<<<<< HEAD
 ## usersテーブル	
 | Column           | Type        | Options    |	
 |------------------|-------------|------------|	
@@ -38,22 +37,6 @@ Things you may want to cover:
 
 ### Association	
 -has_many :items	
-=======
-## usersテーブル
-| Column           | Type        | Options    |
-|---------------------------------------------|
-| nickname         | string      |null: false |
-| family_name      | string      |null: false |
-| first_name       | string      |null: false |
-| family_name_kana | string      |null: false |
-| first_name_kana  | string      |null: false |
-| email            | string      |null: false |
-| password         | string      |null: false |
-| birthday         | date        |null: false |
-
-### Association
--has_many :items
->>>>>>> parent of 8a6ae6b... 転職活動用修正
 -has_many :comments
 -has_many :purchases
 
