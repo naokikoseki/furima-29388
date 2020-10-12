@@ -28,7 +28,7 @@ Things you may want to cover:
 
 ## commentsテーブル
 | Column   | Type    | Options                      |
-|---------------------------------------------------|
+|----------|---------|------------------------------|
 | comment  | text    |                              |
 | item_id  | integer |null: false,foreign_key: true |
 | user_id  | integer |null: false,foreign_key: true |
@@ -39,7 +39,7 @@ Things you may want to cover:
 
 ## itemsテーブル
 | Column          | Type        | Options                      |
-|--------------------------------------------------------------|
+|-----------------|-------------|------------------------------|
 | name            | string      |null: false                   |
 | price           | integer     |null: false                   |
 | category_id     | integer     |null: false                   |
@@ -58,7 +58,7 @@ Things you may want to cover:
 
 ## addressテーブル
 | Column        | Type    | Options                     |
-|-------------------------------------------------------|
+|---------------|---------|-----------------------------|
 | post_code     | string  |null: false                  |
 | prefecture_id | integer |null: false                  |
 | city          | string  |null: false                  |
@@ -72,7 +72,7 @@ Things you may want to cover:
 
 ## purchasesテーブル
 | Column   | Type    | Options                      |
-|---------------------------------------------------|
+|----------|---------|------------------------------|
 | item_id  | integer |null: false,foreign_key: true |
 | user_id  | integer |null: false,foreign_key: true |
 
